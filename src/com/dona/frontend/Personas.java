@@ -32,6 +32,7 @@ public class Personas extends JFrame {
         setLayout(null);
         addLabels();
         formulario();
+        llenarTabla();
     }
 
     private void addLabels(){
@@ -120,5 +121,15 @@ public class Personas extends JFrame {
         for (Persona p: personas){
             tm.addRow(new Object[]{p.getNumAfiliacion(),p.getNombres(),p.getApellidos(),p.getEdad(),p.getProfesion(),p.getEstado()});
         }
+        resultados.setModel(tm);
+    }
+
+    public static void main(String[] args){
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Personas().setVisible(true);
+            }
+        });
     }
 }

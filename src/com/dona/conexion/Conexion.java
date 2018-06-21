@@ -33,7 +33,7 @@ public class Conexion  {
     private void  cargarCredenciales(){
         user = "root";
         pass = "";
-        driver = "com.mysql.jdbc.Driver";
+        driver = "org.mariadb.jdbc.Driver";
         url = "jdbc:mysql://localhost/inscripciones";
     }
 

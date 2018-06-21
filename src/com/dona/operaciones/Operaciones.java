@@ -14,13 +14,13 @@ import java.util.logging.Logger;
 
 public class Operaciones implements Metodos<Persona> {
 
-    private Conexion con;
+    private Conexion con = Conexion.conectar();
 
     private static final String INSERT_QUERY = "insert into personas(numAfiliacion,nombres,apellidos,edad,profesion,estado) values (?,?,?,?,?,?)";
     private static final String UPDATE_QUERY = "update personas set numAfiliacion = ?, nombres = ?, apellidos = ?, edad = ?, profesion = ?, estado = ? where id = ?";
     private static final String DELETE_QUERY = "delete from personas where id = ?";
     private static final String READ_QUERY = "select * from personas where id = ?";
-    private static final String READ_ALL_QUERY = "select * from personas";
+    private static final String READ_ALL_QUERY = "SELECT * FROM personas";
 
 
     @Override
@@ -135,7 +135,7 @@ public class Operaciones implements Metodos<Persona> {
         Statement s;
         ResultSet rs;
         try {
-            s = con.getCnx().prepareCall(READ_ALL_QUERY);
+            s = con.getCnx().prepareStatement(READ_ALL_QUERY);
             rs = s.executeQuery(READ_ALL_QUERY);
             while (rs.next()){
                 personas.add(new Persona(rs.getInt(1),
