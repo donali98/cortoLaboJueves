@@ -33,6 +33,26 @@ public class Personas extends JFrame {
         addLabels();
         formulario();
         llenarTabla();
+        Container container = getContentPane();
+
+        container.add(lblNumAfiliacion);
+        container.add(lblNombres);
+        container.add(lblApellidos);
+        container.add(lblEdad);
+        container.add(lblProfesion);
+        container.add(lblEstado);
+
+        container.add(txtNumAfiliacion);
+        container.add(txtNombres);
+        container.add(txtApellidos);
+        container.add(txtEdad);
+        container.add(table);
+
+        setSize(600,600);
+
+
+
+
     }
 
     private void addLabels(){
